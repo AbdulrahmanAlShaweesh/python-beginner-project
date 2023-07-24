@@ -1,30 +1,6 @@
 
-# import random
+import random
 
-# class DieGame :
-    
-#     def __init__(self, startPlace, endPlace, userPlace, computerPlace, userWins, computerWins) :
-#         self.startPlace = startPlace 
-#         self.endplace = endPlace 
-#         self.userPlace = userPlace 
-#         self.computerPlace = computerPlace 
-#         self.userWins = userWins 
-#         self.computerWins = computerPlace
-    
-#     def winer(self) :
-        
-#         while not self.userWins or not self.computerWins :
-#             user_choose = input('enter t : to toss or q to quit the game ? ').strip().lower() 
-            
-#             if user_choose == 'q' :
-#                 break 
-#             elif user_choose == 't' :
-#                 user_more = random.randint(0,5) 
-#                 self.userPlace += user_more 
-                
-#                 if self.userPlace > 40 : 
-#                     over_shot = self.userPlace - 40 
-#                     self.userPlace = 40 -over_shot 
 
 class DieGame :
     
@@ -43,13 +19,45 @@ class DieGame :
             
             if user_choose == 'q' :
                 print('game over!'.capitalize())
+                print(f'you need {40 - self.userPlace} place to win')
                 break
-            elif user_choose == 't' :
-                pass
+            if user_choose == 't' :
+                
+                user_pick_value = random.randint(1,5)
+                self.userPlace += user_pick_value 
+                print(f'you need {self.userPlace} Place to win')
+                
+                # computer place 
+                computer_pick_value = random.randint(1,5) 
+                self.computerPlace += computer_pick_value 
+                print(f'computer needs {self.computerPlace} Place to win')
+                
+                
+                if self.userPlace > self.endPlace  : 
+                    user_over_shot_place = self.userPlace - self.endPlace 
+                    self.userPlace = self.endPlace - user_over_shot_place 
+                    
+                    if self.userPlace == 40 : 
+                        self.isUserWins = True 
+                        break 
+                    
+                elif self.computerPlace > self.endPlace  : 
+                    computer_over_shot_place =  self.computerPlace - self.endPlace 
+                    # if the overshot is 0, the computer will has exact 40 place
+                    self.computerPlace = self.endPlace - computer_over_shot_place 
+                    
+                    if self.computerPlace == 40 :
+                        self.isComputerWins = True
+                        break
+                    
             else :
                 print('invalid user choose'.capitalize())
-
-
+        if self.userPlace == 40 :
+            print('You won') 
+        elif self.computerPlace == 40 :
+            print('computer won'.capitalize())
+        # if self.userPlace == 40 :
+        #     print('you won')t
 die_game = DieGame(0, 40, 0, 0, False, False) 
 
 die_game.checkWhosWiner()
