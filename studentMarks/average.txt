@@ -1,0 +1,6 @@
+name 		average
+**************************
+Annie : 	 250
+Binnie : 	 260
+Carol : 	 260
+Daris : 	 255
