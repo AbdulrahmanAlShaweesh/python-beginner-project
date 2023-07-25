@@ -31,8 +31,8 @@ def radnomNumberGussingGame(topRange, numberOfTryes) :
                         keep_playing = input('Do you want to keep playing ? ').strip().lower() 
                         if keep_playing != 'yes' :
                             break 
-                        else :
-                            continue
+                        else : 
+                            continue  
                     if user_gussed > random_number : 
                         print('your gussed number is above the the random number') 
                     elif user_gussed < random_number :
