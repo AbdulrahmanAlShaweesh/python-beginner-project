@@ -8,11 +8,13 @@ class AverageMarksCalculator :
         
         for name, marks in self.marks.items() :
             # calcualt the average for each students. 
-            average = 0 
+            total_marks = 0 
+            average = 0
             for mark in marks : 
-                average += mark
+                total_marks += mark
+                average =  total_marks / len(marks)
             # print(name)
-            student_average_marks.update({name : average}) 
+            student_average_marks.update({name : round(average, 2)}) 
         return student_average_marks 
     
     def student_average_marks(self) : 
