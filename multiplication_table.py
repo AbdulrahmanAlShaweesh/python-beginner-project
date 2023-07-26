@@ -8,13 +8,20 @@
 
 # table_number = int(input('Enter the multiplication table ? ').strip())
 # number = int(input('enter number'))
-print('Multiplication Table, by Al Sweigart al@inventwithpython.com')
-print('  |  0   1   2   3   4   5   6   7   8   9  10  11  12')
-print('--|---------------------------------------------------')
 
-for number1 in range(0, 13):
-     print(str(number1).rjust(2), end='')
-     print('|', end='')
-     for number2 in range(0, 13):
-         print(str(number1 * number2).rjust(3), end=' ')
-     print() 
+def mutiplicationTable(tableNumber, number) : 
+    
+    print('Multiplication Table, by Al Sweigart al@inventwithpython.com')
+    print('  |  0   1   2   3   4   5   6   7   8   9  10  11  12')
+    print('--|---------------------------------------------------')
+
+    for table in range(0, tableNumber+1):
+        print(str(table).rjust(2), end='')
+        print('|', end='')
+        for num in range(0, number+1):
+            print(str(table * num).rjust(3), end=' ')
+        print() 
+        
+tablenNumber = int(input('Enter table number? ').strip())
+number = int(input('emter the number ? ').strip())
+mutiplicationTable(tablenNumber,number)
