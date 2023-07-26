@@ -1,6 +1,4 @@
 
-
-
 def drowTie(number) :
     
     for i in range(number) :
