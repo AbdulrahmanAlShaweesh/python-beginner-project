@@ -15,12 +15,13 @@ class PatensRecord :
          
         self.pastionName = input('pation\'s name ? ')    # pation's name.
         while self.pastionName not in self.pationsPasteRecord.keys() : 
-            print('*************************************') 
+            print('\n*************************************') 
             print('add the pastion to database recored')
-            print('*************************************')
+            print('*************************************\n')
             self.addPationToDatabase()
-            break
-        return self.pationsPasteRecord
+        else :
+            print('yes')
+            return self.pationsPasteRecord
     
     def addPationToDatabase(self) :
             
@@ -31,11 +32,11 @@ class PatensRecord :
                 height = float(input('pation\'s heights ? ').strip()) 
                 weight = float(input('pation\'s weights ? ').strip())
                  
-                self.pationsPasteRecords.update({self.pastionName : {'name' : self.pastionName, 'age': age, 'country': country, 'height' : height, 'weight': weight}})
-                return self.pationsPasteRecords
+                self.pationsPasteRecord.update({self.pastionName : {'name' : self.pastionName, 'age': age, 'country': country, 'height' : height, 'weight': weight}})
+                return self.pationsPasteRecord
             except :
                 return 'something went wrong.'
-pationsPasteRecords = {'mohammed': 12}
+pationsPasteRecords = {}
 obj = PatensRecord()
 print(obj.gettingPationsPastRecords(**pationsPasteRecords))
 print(obj.checkPastionRecord())
