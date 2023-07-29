@@ -54,9 +54,9 @@ class PasswordGenerator :
             newPassword += r.choice(lowerCauseLetters)
         for i in range(numbers)  :
             newPassword += r.choice(str(number))  
-        # for j in range(symbols) :
-        #     newPassword.append(r.choices(symbol))
-        print(symbol)
+        for j in range(symbols) :
+            newPassword += r.choice(symbol)
+        # print(symbol)
         return newPassword
     
 code = [chr(i) for i in range(65, 91)]
