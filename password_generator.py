@@ -39,10 +39,15 @@ class PasswordGenerator :
                 if userPasswordLength == desiredPasswordLength  : 
                     return int(userPasswordLength),  int(uppercase), int(lowercase), int(numberinc), int(symbols)
                 else : 
-                    print(desiredPasswordLength, userPasswordLength)
-                    return 'total password charcketers not match your desirebed passwprd length'
+                    # print(desiredPasswordLength, userPasswordLength)
+                    print('\n******************************************************************')
+                    print('total password charcketers not match your desirebed passwprd length')
+                    print('******************************************************************')
+                    quit()
             except :
-                return 'enter the length of the password, only digits allowed.'    
+                print('enter the length of the password, only digits allowed.'   )
+                quit() 
+                
     @property
     def generatPassword(self) :
         passLength, upperletter, lowerletter, numbers, symbols = self.userDesiredPasswordLength
