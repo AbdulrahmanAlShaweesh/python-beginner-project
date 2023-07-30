@@ -6,7 +6,8 @@ class GroceryCasher :
     def __init__(self,) : 
         self.buyingList = {} 
         self.productsPrice = {'mango':1.2, 'apple': 0.99, 'checken': 2, 'finish': 3, 'botato': 1, 'eggs' : 0.4, 'meat' : 3, 'tomato' : 0.3} 
-    
+        self.membership = 'gold' 
+        
     def get_buying_items(self) :
         
             try : 
@@ -30,6 +31,22 @@ class GroceryCasher :
         print('*****************************************')
         print('wecome to online shopping card.'.center(40, ' '))
         print('*****************************************')
+    
+    # get price 
+    def price(self, totalPrice) :
+        self.price = totalPrice
+         
+    
+    @property 
+    def get_discount(self) :
+        
+        if self.price >= 55 and self.membership == 'gold': 
+            self.price_after_des = self.price * 0.85
+            return self.price_after_des, '15%'
+        else :
+            return self.price, '0 %'
+            
+        
     def get_price(self) :
         item_price = 0
         sub_total = 0 
@@ -39,8 +56,15 @@ class GroceryCasher :
             item_price = self.productsPrice[product] * quntity
             sub_total += item_price
             
-            print(product + '\t\t ', str(quntity), '\t\t' , item_price)
-        print('total price' + '\t\t\t', sub_total)
+            print(product + '\t\t ', str(quntity), '\t\t' , round(item_price,2))
+        print('.....................................')
+        self.price(sub_total)
+        print('total price' + '\t\t\t', round(sub_total,2 ))
+        print('total descount' + '\t\t\t', round((sub_total - self.get_discount[0]), 2))
+        print('.....................................')
+        print('total price' + '\t\t\t', round(self.get_discount[0], 2))
+        print('total descout' + '\t\t\t', self.get_discount[1])
+        
         print('.....................................')
     # -------------------------------------------------------------
     
@@ -69,6 +93,7 @@ def user_interface() :
            break 
         else :
              print('invalid options')
+        
         
 user_interface() 
 
