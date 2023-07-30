@@ -5,7 +5,7 @@ class GroceryCasher :
     
     def __init__(self,) : 
         self.buyingList = {} 
-        self.productsPrice = {'checken': 2, 'finish': 3, 'botato': 1, 'eggs' : 0.4, 'meat' : 3, 'tomato' : 0.3} 
+        self.productsPrice = {'mango':1.2, 'apple': 0.99, 'checken': 2, 'finish': 3, 'botato': 1, 'eggs' : 0.4, 'meat' : 3, 'tomato' : 0.3} 
     
     def get_buying_items(self) :
         
@@ -23,8 +23,13 @@ class GroceryCasher :
             except :
                 print('only digits allowed')
             return self.buyingList
-                 
-
+    
+    # ------------------------------------------------------------
+    @staticmethod 
+    def welcome_user() : 
+        print('*****************************************')
+        print('wecome to online shopping card.'.center(40, ' '))
+        print('*****************************************')
     def get_price(self) :
         item_price = 0
         sub_total = 0 
@@ -37,7 +42,7 @@ class GroceryCasher :
             print(product + '\t\t ', str(quntity), '\t\t' , item_price)
         print('total price' + '\t\t\t', sub_total)
         print('.....................................')
-      
+    # -------------------------------------------------------------
     
 
 
@@ -45,13 +50,28 @@ buying  = {'checken' : 3, 'finish' : 4, 'botato': 10, 'eggs': 20}
 total = 0
 
 casher = GroceryCasher() 
-print(casher.get_buying_items())
  
+def user_interface() : 
+    
+    casher.welcome_user()
+    while True : 
+        
+        items = input('Do you want to see products, or add items and q to exit(see/add/q) ? ').strip().lower() 
+        
+        if items == 'see' : 
+            if len(casher.buyingList.keys()) == 0 :
+                print('You do not have a products to display.')
+            else :
+                casher.get_price() 
+        elif items == 'add' : 
+            casher.get_buying_items() 
+        elif items == 'q' :
+           break 
+        else :
+             print('invalid options')
+        
+user_interface() 
 
-# for i, j in buying.items() :
-    
-    
-#     sub = dictr[i] * j
-#     print(f'price for {i} => {sub}')
-#     print(sub)
+        
+ 
  
