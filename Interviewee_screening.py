@@ -12,32 +12,34 @@ requred = ['Python', 'R', 'English', 'Communication']
 def canidatecanidateCV() :
    
     canidate_cv = {}
-    while True :
+   
         
-        skills = []
+    skills = []
+    
+    try : 
         
-        try : 
-            
-            name = input('Canidate\'s Name ? ').strip().capitalize() 
-            experinces = int(input('candate\'s years of experinces ? ').strip())
-            languges = int(input('amount of skills canidate has ? ').strip())
-            
-            for lang in range(languges) : 
-                skill = input(f'canidate skill {lang+1} ? ').strip().capitalize()
-                skills.append(skill)
-            canidate_cv.update({name: {'experinces': experinces, 'Skills' : skills}})
-            
-            add_canidate = input('Do you want to add more canidate(Y/N) ? ').strip().lower() 
-            
-            if add_canidate != 'y' : 
-                break 
-            
-            
-
-        except :
-            
-            print('something went wrong.') 
+        name = input('Canidate\'s Name ? ').strip().capitalize() 
+        experinces = int(input('candate\'s years of experinces ? ').strip())
+        languges = int(input('amount of skills canidate has ? ').strip())
+        
+        for lang in range(languges) : 
+            skill = input(f'canidate skill {lang+1} ? ').strip().capitalize()
+            skills.append(skill)
+        canidate_cv.update({name: {'experinces': experinces, 'Skills' : skills}})
         return canidate_cv
+    except :
+        
+        print('something went wrong.') 
 
-canidate_cv = canidatecanidateCV()
-IntervieweeScreening(min_experinces, requred, **canidate_cv)
+while True : 
+    
+    add = input('Add more canidates ? ').strip().lower() 
+    canidate_cv = {}
+    if add == 'y' : 
+        canidate_cv = canidatecanidateCV()
+    else :  
+        IntervieweeScreening(min_experinces, requred, **canidate_cv)
+        break
+        
+# print(canidate_cv)
+# 
