@@ -6,9 +6,6 @@ def IntervieweeScreening(min_experince, requred, **canidate_cv) :
         if cv['experinces'] >= min_experince and set(requred).issubset(set(cv['Skills'])): 
             print(f'{name} is passed the interview')
 
-min_experinces = 3 
-requred = ['Python', 'R', 'English', 'Communication']
-
 def canidatecanidateCV() :
    
     canidate_cv = {}
@@ -30,16 +27,12 @@ def canidatecanidateCV() :
     except :
         
         print('something went wrong.') 
-
-while True : 
-    
-    add = input('Add more canidates ? ').strip().lower() 
-    canidate_cv = {}
-    if add == 'y' : 
-        canidate_cv = canidatecanidateCV()
-    else :  
-        IntervieweeScreening(min_experinces, requred, **canidate_cv)
-        break
         
-# print(canidate_cv)
-# 
+        
+canidate_cv = canidatecanidateCV()
+min_experinces = 3 
+requred = ['Python', 'R', 'English', 'Communication']
+
+IntervieweeScreening(min_experinces, requred, **canidate_cv)
+ 
+  
