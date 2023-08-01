@@ -15,26 +15,34 @@ class ArithmeticGames :
         
         return self.number1, self.number2, self.operators
     
+    # this function used to generate the quations. 
     def generateQuation(self) : 
         if self.operators == '+' : 
-            answer = self.number1 + self.number2 
+            quation = self.number1 + self.number2 
         elif self.operators == '-' :
-            answer = self.number1 - self.number2 
+            quation = self.number1 - self.number2 
         elif self.operators == '/'  :
-            answer = self.number1 / self.number2 
+            quation = self.number1 / self.number2   
         elif self.operators == '//' :
-            answer = self.number1 * self.number2 
-        elif self.operators == '%' : 
-            answer = self.number1 % self.number2 
+            quation = self.number1 * self.number2   
+        elif self.operators == '%' :                
+            quation = self.number1 % self.number2   
         else : 
-            answer = self.number1 ** self.number2
-        return answer
+            quation = self.number1 ** self.number2   
+        return quation
      
     # this function display the quation. 
     def quation(self) : 
-        number1, number2, opertor = self.numberAndOperator()
-        quation = input(f'{number1} {opertor} {number2}? = ')
-        print(quation)
+        for i in range(self.number_of_quations) : 
+            number1, number2, opertor = self.numberAndOperator()
+            quation = self.generateQuation()
+            print(quation)
+            # answer = input(f'{number1} {opertor} {number2}? = ')
+            
+            # if answer == quation :
+            #     pass
+            
+            # print(quation)x
 play_game = ArithmeticGames(10) 
 
 play_game.quation()
