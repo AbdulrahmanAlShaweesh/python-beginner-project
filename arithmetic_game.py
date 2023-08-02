@@ -1,48 +1,55 @@
-import random as r 
-import time as t 
 
 
-class ArithmeticGames : 
+
+
+import random 
+import time
+
+def arithmaticGame() :
     
-    def __init__(self, number_of_quations) :
-        self.number_of_quations = number_of_quations 
+    number1 = random.randint(1, 50)
+    number2 = random.randint(1, 50) 
+    operations = random.choice(['+', '-', '*','//'])
+    print(number1, number2, operations)
     
-    # this function is to return the quations and operator. 
-    def numberAndOperator(self):
-        self.number1 = r.randint(1,50) 
-        self.number2 = r.randint(1, 50) 
-        self.operators = r.choice(['+', '-', '/', '//', '*', '%', '**']) 
+    if operations == '+' : 
+        answer = number1 + number2 
+    elif operations == '-' : 
+        answer = number1 - number2
+    elif operations == '*' : 
+        answer = number1 * number2 
+    else : 
+        answer = number1 // number2 
+    quation = f'{number1} {operations} {number2} = '
+    return answer, quation
+
+def userAnswer(number_of_quation): 
+    
+    try :
+         
+        start_time = time.time() 
         
-        return self.number1, self.number2, self.operators
+        counter = 0
+        for i in range(number_of_quation):
+            correctAnswer, quation = arithmaticGame()
+             
+            quation = int(input(quation.strip() + ' ')) 
+            # waiting = time.sleep()
+            end_time = time.time() 
+            if end_time - start_time > 6 :
+                print('you took to long to answer the quaton, try to be fast next time.')
+                continue
+            else :
+                print(end_time - start_time)
+                if quation != correctAnswer : 
+                    print('wrrong answer.')
+                else :
+                    counter += 1
+                    print('correct answer.')
+        # print(waiting)
+        return counter
+    except : 
+        print('error')
     
-    # this function used to generate the quations. 
-    def generateQuation(self) : 
-        if self.operators == '+' : 
-            quation = self.number1 + self.number2 
-        elif self.operators == '-' :
-            quation = self.number1 - self.number2 
-        elif self.operators == '/'  :
-            quation = self.number1 / self.number2   
-        elif self.operators == '//' :
-            quation = self.number1 * self.number2   
-        elif self.operators == '%' :                
-            quation = self.number1 % self.number2   
-        else : 
-            quation = self.number1 ** self.number2   
-        return quation
-     
-    # this function display the quation. 
-    def quation(self) : 
-        for i in range(self.number_of_quations) : 
-            number1, number2, opertor = self.numberAndOperator()
-            quation = self.generateQuation()
-            print(quation)
-            # answer = input(f'{number1} {opertor} {number2}? = ')
-            
-            # if answer == quation :
-            #     pass
-            
-            # print(quation)x
-play_game = ArithmeticGames(10) 
-
-play_game.quation()
+marks = userAnswer(3)
+print(marks)
