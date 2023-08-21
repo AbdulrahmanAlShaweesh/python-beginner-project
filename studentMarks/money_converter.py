@@ -11,14 +11,14 @@ country_currency = input('Enter the country\'s currency you to change ? ').strip
 
 # check if user promot an empty input. 
 if money == "" or country_currency == "" :
-    if money == " " :
+    if money == "" and country_currency == "":
+        print('you need to enter a valid amount of money and country\'s currency')
+    
+    elif money == "" : 
         print('you need to enter a valid amount of money') 
         
-    elif money == " " :
-         print('you need to enter a valid country currency')
-        
-    else :
-        print('you need to enter a valid amount of money and country\'s currency')
+    else  :
+         print('you need to enter a valid country currency')  
 # if the money user enter is in a digit format. 
 elif money.isdigit : 
     if country_currency.isalpha : 
