@@ -12,6 +12,14 @@ def areaCircle(radius) :
     except : 
         return 'enter a valid format data'
 
+def areaRectangulare(width, height) :
+    try : 
+        width = float(width) 
+        height = float(height)
+        area = width * height 
+        return f'The area of a rctangulare is {area:.2f}'
+    except : 
+        return 'enter a valid format data'
 
     
  
