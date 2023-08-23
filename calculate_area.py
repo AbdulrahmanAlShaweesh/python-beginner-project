@@ -29,5 +29,16 @@ while True :
     if area == 'c' :
         radius = input('enter the radius of the circle ? ').strip() 
         print(areaCircle(radius))
+    elif area == 'r' : 
+        width = input('enter the width of the rectangure ? ').strip() 
+        height = input('enter the height of the rectanguler ? ').strip() 
+        
+        print(areaRectangulare(width, height))
+    keep = input('Do you need to calculate any area (yes/no)? ').strip().lower() 
+    
+    if keep != 'yes' :
+        break
+    continue
+
     
     
